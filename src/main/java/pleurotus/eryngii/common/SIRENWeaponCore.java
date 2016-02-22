@@ -16,6 +16,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.config.Configuration;
+import pleurotus.eryngii.item.ItemPoker;
 
 @Mod(modid="SIRENBluntWeapons", version="1.0")
 /*
@@ -97,12 +98,11 @@ public class SIRENWeaponCore
 
 //面倒なので全部Swordを継承してます。1個ずつ細かい設定するのでそのときに適宜変更してください
 		{
-
-		poker = new ItemSword(Item.ToolMaterial.EMERALD)
-		.setCreativeTab(SIRENTabs)/*クリエイティブのタブ*/
-		.setUnlocalizedName("ItemPoker")/*システム名の登録*/
-		.setTextureName("sirenweaponmod:poker");/*テクスチャの指定*/
-		//アイテムの登録。登録文字列はMOD内で被らなければ何でも良い。
+			Item poker;
+			poker = new ItemPoker(Item.ToolMaterial.EMERALD)
+					.setCreativeTab(this.SIRENTabs)
+					.setUnlocalizedName("ItemPoker")
+					.setTextureName("sirenweaponmod:poker");
 		GameRegistry.registerItem(poker, "Poker");
 
 		rachetWrench = new ItemSword(Item.ToolMaterial.EMERALD)
