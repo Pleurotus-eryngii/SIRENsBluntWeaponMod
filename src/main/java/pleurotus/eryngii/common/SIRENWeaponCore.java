@@ -9,14 +9,20 @@ import org.apache.logging.log4j.Logger;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.util.EnumHelper;
+import pleurotus.eryngii.client.ClientSideProxy;
+import pleurotus.eryngii.item.EntityBullet;
 import pleurotus.eryngii.item.ItemPoker;
+import pleurotus.eryngii.item.ItemUrien;
 
 @Mod(modid="SIRENBluntWeapons", version="1.0")
 /*
@@ -66,7 +72,18 @@ public class SIRENWeaponCore
 	public static Item nailBat;
 	public static Item sionagi;
 	public static Item annaki;
-
+	
+	//攻撃力の設定用。
+	public static final Item.ToolMaterial BLUE = EnumHelper.addToolMaterial("BLUE", 0, 150, -5.0F, -5.0F, 30  );
+	
+	//クライアント，サーバー間で異なる処理を行わせるためのプロキシーの設定．
+		@SidedProxy(clientSide = "pleurotus.eryngii.client.ClientSideProxy", 
+					serverSide = "pleurotus.eryngii.common.CommonSideProxy")
+		public static CommonSideProxy proxy;
+		public static ClientSideProxy clientproxy;
+		
+		//エンティティIDの上限を設定．
+		public static int entityIdHead = 170;
 
 	public static final CreativeTabs SIRENTabs = new SIRENTabCreateHandler("SIRENWeapons");
 
@@ -129,11 +146,15 @@ public class SIRENWeaponCore
 		.setTextureName("sirenweaponmod:nailHammer");
 		GameRegistry.registerItem(nailHammer, "NailHammer");
 
-		urien = new ItemSword(Item.ToolMaterial.EMERALD)
+		urien = (new ItemUrien(BLUE))
 		.setCreativeTab(SIRENTabs)
 		.setUnlocalizedName("ItemUrien")
 		.setTextureName("sirenweaponmod:urien");
 		GameRegistry.registerItem(urien, "Urien");
+		
+		//宇理炎ソードの右クリックで発射されるエンティティを登録．
+				EntityRegistry.registerModEntity(EntityBullet.class, "Arrow",entityIdHead, this, 128, 5, true);
+				proxy.registerRenderers();
 
 		homuranagi = new ItemSword(Item.ToolMaterial.EMERALD)
 		.setCreativeTab(SIRENTabs)
