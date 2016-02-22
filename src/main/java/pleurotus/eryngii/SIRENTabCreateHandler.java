@@ -10,7 +10,7 @@ public class SIRENTabCreateHandler extends CreativeTabs
 
 	public SIRENTabCreateHandler(String lablel) {
 		super(lablel);
-		// TODO 自動生成されたコンストラクター・スタブ
+
 	}
 
 
