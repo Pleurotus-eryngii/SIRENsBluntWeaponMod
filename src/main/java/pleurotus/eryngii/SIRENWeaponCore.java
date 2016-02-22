@@ -1,5 +1,6 @@
 package pleurotus.eryngii;
 
+<<<<<<< HEAD
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -65,6 +66,23 @@ public class SIRENWeaponCore
 
 	public static final CreativeTabs SIRENTabs = new SIRENTab("SIRENWeapons");
 
+=======
+import java.io.IOException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.common.config.Configuration;
+
+@Mod(modid = "SIRENBluntWeapons", name = "SIRENBluntWeapons",version = "1.7.10_1.0",dependencies = "required*after:Forge@[10.13.2.1558,)")
+public class SIRENWeaponCore {
+
+>>>>>>> origin/master
 	@Instance("SIRENBluntWeapons")
 	public static SIRENWeaponCore instance;
 
@@ -89,6 +107,7 @@ public class SIRENWeaponCore
 		}
 
 		//アイテム・ブロック登録はここで
+<<<<<<< HEAD
 //面倒なので全部Swordを継承してます。1個ずつ細かい設定するのでそのときに適宜変更してください
 		{
 	
@@ -333,4 +352,14 @@ public class SIRENWeaponCore
 
 	}
 	
+=======
+
+	}
+
+	@EventHandler
+	public void init(FMLInitializationEvent event) throws IOException {
+		//レシピの登録はここでどうぞ
+	}
+
+>>>>>>> origin/master
 }
