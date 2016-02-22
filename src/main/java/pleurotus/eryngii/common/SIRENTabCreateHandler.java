@@ -1,4 +1,4 @@
-package pleurotus.eryngii;
+package pleurotus.eryngii.common;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

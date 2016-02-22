@@ -1,4 +1,4 @@
-package pleurotus.eryngii;
+package pleurotus.eryngii.common;
 
 
 import java.io.IOException;
