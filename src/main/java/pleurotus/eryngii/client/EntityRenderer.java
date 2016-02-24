@@ -9,7 +9,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import pleurotus.eryngii.item.EntityBullet;
+import pleurotus.eryngii.common.EntityBullet;
 
 /*
  * エンティティの描画に関するクラスです．

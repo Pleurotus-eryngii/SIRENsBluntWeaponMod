@@ -5,7 +5,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import pleurotus.eryngii.common.CommonSideProxy;
-import pleurotus.eryngii.item.EntityBullet;
+import pleurotus.eryngii.common.EntityBullet;
 
 /*
  * クライアント側のプロキシーの設定に関するクラスです．

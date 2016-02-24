@@ -1,4 +1,4 @@
-package pleurotus.eryngii.item;
+package pleurotus.eryngii.common;
 
 import java.util.List;
 

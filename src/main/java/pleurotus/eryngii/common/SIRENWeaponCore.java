@@ -20,8 +20,8 @@ import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import pleurotus.eryngii.client.ClientSideProxy;
-import pleurotus.eryngii.item.EntityBullet;
 import pleurotus.eryngii.item.ItemPoker;
+import pleurotus.eryngii.item.ItemRectangularTimber;
 import pleurotus.eryngii.item.ItemUrien;
 
 @Mod(modid="SIRENBluntWeapons", version="1.0")
@@ -40,7 +40,7 @@ public class SIRENWeaponCore
 	public static Item nailHammer;
 	public static Item urien;
 	public static Item homuranagi;
-	public static Item rectangularTimber;
+	public static Item rectangulartimber;
 	public static Item monkeyWrench;
 	public static Item umbrella;
 	public static Item ropeCutter;
@@ -72,16 +72,16 @@ public class SIRENWeaponCore
 	public static Item nailBat;
 	public static Item sionagi;
 	public static Item annaki;
-	
+
 	//攻撃力の設定用。
 	public static final Item.ToolMaterial BLUE = EnumHelper.addToolMaterial("BLUE", 0, 150, -5.0F, -5.0F, 30  );
-	
+
 	//クライアント，サーバー間で異なる処理を行わせるためのプロキシーの設定．
-		@SidedProxy(clientSide = "pleurotus.eryngii.client.ClientSideProxy", 
+		@SidedProxy(clientSide = "pleurotus.eryngii.client.ClientSideProxy",
 					serverSide = "pleurotus.eryngii.common.CommonSideProxy")
 		public static CommonSideProxy proxy;
 		public static ClientSideProxy clientproxy;
-		
+
 		//エンティティIDの上限を設定．
 		public static int entityIdHead = 170;
 
@@ -96,7 +96,8 @@ public class SIRENWeaponCore
 	public static Logger logger = LogManager.getLogger("SIRENBluntWeapons");
 
 	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event)
+	{
 
 		//Config
 		//これも一応。
@@ -108,13 +109,13 @@ public class SIRENWeaponCore
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-
+			cfg.save();
 		}
 
 		//アイテム・ブロック登録はここで
 
 //面倒なので全部Swordを継承してます。1個ずつ細かい設定するのでそのときに適宜変更してください
-		{
+
 			Item poker;
 			poker = new ItemPoker(Item.ToolMaterial.EMERALD)
 					.setCreativeTab(this.SIRENTabs)
@@ -151,22 +152,23 @@ public class SIRENWeaponCore
 		.setUnlocalizedName("ItemUrien")
 		.setTextureName("sirenweaponmod:urien");
 		GameRegistry.registerItem(urien, "Urien");
-		
+
 		//宇理炎ソードの右クリックで発射されるエンティティを登録．
-				EntityRegistry.registerModEntity(EntityBullet.class, "Arrow",entityIdHead, this, 128, 5, true);
-				proxy.registerRenderers();
+		EntityRegistry.registerModEntity(EntityBullet.class, "Arrow",entityIdHead, this, 128, 5, true);
+		proxy.registerRenderers();
 
 		homuranagi = new ItemSword(Item.ToolMaterial.EMERALD)
 		.setCreativeTab(SIRENTabs)
 		.setUnlocalizedName("ItemHomuranagi")
 		.setTextureName("sirenweaponmod:homuranagi");
 		GameRegistry.registerItem(homuranagi, "Homuranagi");
-
-		rectangularTimber = new ItemSword(Item.ToolMaterial.EMERALD)
+		
+		Item rectangulartimber;
+		rectangulartimber = new ItemRectangularTimber(Item.ToolMaterial.EMERALD)
 		.setCreativeTab(SIRENTabs)
 		.setUnlocalizedName("ItemRectaungularTimber")
 		.setTextureName("sirenweaponmod:rectangulartimber");
-		GameRegistry.registerItem(rectangularTimber, "RectangularTimber");
+		GameRegistry.registerItem(rectangulartimber, "RectangularTimber");
 
 		monkeyWrench = new ItemSword(Item.ToolMaterial.EMERALD)
 		.setCreativeTab(SIRENTabs)
@@ -355,7 +357,7 @@ public class SIRENWeaponCore
 		GameRegistry.registerItem(annaki, "Annnaki");
 
 
-		}
+
 
 
 	}

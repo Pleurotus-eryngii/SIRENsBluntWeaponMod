@@ -13,6 +13,7 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import pleurotus.eryngii.common.EntityBullet;
 import pleurotus.eryngii.common.SIRENWeaponCore;
 
 /*
