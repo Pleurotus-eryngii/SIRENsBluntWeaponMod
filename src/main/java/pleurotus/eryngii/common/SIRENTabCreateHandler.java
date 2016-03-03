@@ -19,7 +19,9 @@ public class SIRENTabCreateHandler extends CreativeTabs
 	@SideOnly(Side.CLIENT)
 	public Item getTabIconItem()
 	{
-		return SIRENWeaponCore.poker;
+		//pokerの処理を変更したお陰でバグが起きてたみたいです。
+		//どんな変更したのかはっきり分からないので根本的な原因は知りませんが、とりあえずironPipeにしたら収まりました
+		return SIRENWeaponCore.ironPipe;
 	}
 
 	@Override
