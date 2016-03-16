@@ -173,7 +173,7 @@ public class SIRENWeaponCore
 		monkeyWrench = new ItemSword(Item.ToolMaterial.EMERALD)
 		.setCreativeTab(SIRENTabs)
 		.setUnlocalizedName("ItemMonkeyWrench")
-		.setTextureName("sirenweaponmodmonkeywrench:");
+		.setTextureName("sirenweaponmod:monkeywrench:");
 		GameRegistry.registerItem(monkeyWrench, "MonkeyWrench");
 
 		umbrella = new ItemSword(Item.ToolMaterial.EMERALD)
@@ -357,18 +357,19 @@ public class SIRENWeaponCore
 		GameRegistry.registerItem(annaki, "Annnaki");
 
 
-
-
-
 	}
 
 
 
 
 
+
+
 	@EventHandler
-	public void init(FMLInitializationEvent event) throws IOException {
+	public void init(FMLInitializationEvent event)  throws IOException{
 		//レシピの登録はここでどうぞ
+	   //アイテムの表示名の登録も行えます
+
 	}
 
 
