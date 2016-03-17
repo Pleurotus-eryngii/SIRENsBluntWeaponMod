@@ -14,6 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
@@ -40,7 +41,7 @@ public class SIRENWeaponCore
 	public static Item nailHammer;
 	public static Item urien;
 	public static Item homuranagi;
-	public static Item rectangulartimber;
+	public static Item rectangularTimber;
 	public static Item monkeyWrench;
 	public static Item umbrella;
 	public static Item ropeCutter;
@@ -116,11 +117,11 @@ public class SIRENWeaponCore
 
 //面倒なので全部Swordを継承してます。1個ずつ細かい設定するのでそのときに適宜変更してください
 
-			Item poker;
-			poker = new ItemPoker(Item.ToolMaterial.EMERALD)
-					.setCreativeTab(this.SIRENTabs)
-					.setUnlocalizedName("ItemPoker")
-					.setTextureName("sirenweaponmod:poker");
+		//よく分からない Item pokerr; の処理を削除して括弧をつけたら普通に動きました
+		poker = (new ItemPoker(Item.ToolMaterial.EMERALD))
+	    .setCreativeTab(this.SIRENTabs)
+		.setUnlocalizedName("ItemPoker")
+		.setTextureName("sirenweaponmod:poker");
 		GameRegistry.registerItem(poker, "Poker");
 
 		rachetWrench = new ItemSword(Item.ToolMaterial.EMERALD)
@@ -163,17 +164,17 @@ public class SIRENWeaponCore
 		.setTextureName("sirenweaponmod:homuranagi");
 		GameRegistry.registerItem(homuranagi, "Homuranagi");
 		
-		Item rectangulartimber;
-		rectangulartimber = new ItemRectangularTimber(Item.ToolMaterial.EMERALD)
+//よく分からない Item rectangularTimber; の処理を削除して括弧をつけたら普通に動きました
+		rectangularTimber = (new ItemRectangularTimber(Item.ToolMaterial.EMERALD))
 		.setCreativeTab(SIRENTabs)
 		.setUnlocalizedName("ItemRectaungularTimber")
 		.setTextureName("sirenweaponmod:rectangulartimber");
-		GameRegistry.registerItem(rectangulartimber, "RectangularTimber");
+		GameRegistry.registerItem(rectangularTimber, "RectangularTimber");
 
 		monkeyWrench = new ItemSword(Item.ToolMaterial.EMERALD)
 		.setCreativeTab(SIRENTabs)
 		.setUnlocalizedName("ItemMonkeyWrench")
-		.setTextureName("sirenweaponmod:monkeywrench:");
+		.setTextureName("sirenweaponmod:monkeywrench");
 		GameRegistry.registerItem(monkeyWrench, "MonkeyWrench");
 
 		umbrella = new ItemSword(Item.ToolMaterial.EMERALD)
@@ -369,7 +370,121 @@ public class SIRENWeaponCore
 	public void init(FMLInitializationEvent event)  throws IOException{
 		//レシピの登録はここでどうぞ
 	   //アイテムの表示名の登録も行えます
-
+		
+		//表示名の登録。手法が古いけど動作するからいいでしょ
+		LanguageRegistry.addName(poker, "Poker");
+		LanguageRegistry.instance().addNameForObject(poker, "ja_JP", "Poker");
+		
+		LanguageRegistry.addName(rachetWrench, "Rachet Wrench");
+		LanguageRegistry.instance().addNameForObject(rachetWrench, "ja_JP", "ラチェットレンチ");
+		
+		LanguageRegistry.addName(crowbar, "Crowbar");
+		LanguageRegistry.instance().addNameForObject(crowbar, "ja_JP", "バール");
+		
+		LanguageRegistry.addName(ironPipe, "Iron Pipe");
+		LanguageRegistry.instance().addNameForObject(ironPipe, "ja_JP", "鉄パイプ");
+		
+		LanguageRegistry.addName(nailHammer, "Nail Hammer");
+		LanguageRegistry.instance().addNameForObject(nailHammer, "ja_JP", "ネイルハンマー");
+		
+		LanguageRegistry.addName(urien, "Urien");
+		LanguageRegistry.instance().addNameForObject(urien, "ja_JP", "宇理炎");
+		
+		LanguageRegistry.addName(homuranagi, "Homuranagi");
+		LanguageRegistry.instance().addNameForObject(homuranagi, "ja_JP", "焔薙");
+		
+		LanguageRegistry.addName(rectangularTimber, "Rectangular Timber");
+		LanguageRegistry.instance().addNameForObject(rectangularTimber, "ja_JP", "角材");
+		
+		LanguageRegistry.addName(monkeyWrench, "Monkey Wrench");
+		LanguageRegistry.instance().addNameForObject(monkeyWrench, "ja_JP", "モンキーレンチ");
+		
+		LanguageRegistry.addName(umbrella, "Umbrella");
+		LanguageRegistry.instance().addNameForObject(umbrella, "ja_JP", "傘");
+		
+		LanguageRegistry.addName(ropeCutter, "Rope Cutter");
+		LanguageRegistry.instance().addNameForObject(ropeCutter, "ja_JP", "縄切り");
+		
+		LanguageRegistry.addName(ropeCutterHook, "Nawakiri Tekagi");
+		LanguageRegistry.instance().addNameForObject(ropeCutterHook, "ja_JP", "縄切り手鉤");
+		
+		LanguageRegistry.addName(curlingTongs, "Curling Tongs");
+		LanguageRegistry.instance().addNameForObject(curlingTongs, "ja_JP", "左官用こて");
+		
+		LanguageRegistry.addName(truncheon, "Truncheon");
+		LanguageRegistry.instance().addNameForObject(truncheon, "ja_JP", "警棒");
+		
+		LanguageRegistry.addName(crosscutSaw, "Menuki Daikiri");
+		LanguageRegistry.instance().addNameForObject(crosscutSaw, "ja_JP", "目抜き大切");
+		
+		LanguageRegistry.addName(fellingAxe, "Felling Axe");
+		LanguageRegistry.instance().addNameForObject(fellingAxe, "ja_JP", "鉞");
+		
+		LanguageRegistry.addName(hammer, "Hammer");
+		LanguageRegistry.instance().addNameForObject(hammer, "ja_JP", "ハンマー");
+		
+		LanguageRegistry.addName(ironHammer, "Iron Hammer");
+		LanguageRegistry.instance().addNameForObject(ironHammer, "ja_JP", "金槌");
+		
+		LanguageRegistry.addName(pickel, "Pickel");
+		LanguageRegistry.instance().addNameForObject(pickel, "ja_JP", "ピッケル");
+		
+		LanguageRegistry.addName(pickaxe, "Pickaxe");
+		LanguageRegistry.instance().addNameForObject(pickaxe, "ja_JP", "鶴嘴");
+		
+		LanguageRegistry.addName(peelingSickle, "Peeling Sickle");
+		LanguageRegistry.instance().addNameForObject(peelingSickle, "ja_JP", "皮剥き鎌");
+		
+		LanguageRegistry.addName(tennisRacket, "Tennis Racket");
+		LanguageRegistry.instance().addNameForObject(tennisRacket, "ja_JP", "テニスラケット");
+		
+		LanguageRegistry.addName(shoehorn, "Shoehorn");
+		LanguageRegistry.instance().addNameForObject(shoehorn, "ja_JP", "靴べら");
+		
+		LanguageRegistry.addName(handAxe, "Hand Axe");
+		LanguageRegistry.instance().addNameForObject(handAxe, "ja_JP", "手斧");
+		
+		LanguageRegistry.addName(hatchet, "Hatchet");
+		LanguageRegistry.instance().addNameForObject(hatchet, "ja_JP", "鉈");
+		
+		LanguageRegistry.addName(electricIron, "Electric Iron");
+		LanguageRegistry.instance().addNameForObject(electricIron, "ja_JP", "アイロン");
+		
+		LanguageRegistry.addName(kitchenKnife, "Broad‐Bladed Kitchen Knife");
+		LanguageRegistry.instance().addNameForObject(kitchenKnife, "ja_JP", "出刃包丁");
+		
+		LanguageRegistry.addName(governmentShovel, "Government Shovel");
+		LanguageRegistry.instance().addNameForObject(ropeCutterHook, "ja_JP", "官給スコップ");
+		
+		LanguageRegistry.addName(shovel, "Shovel");
+		LanguageRegistry.instance().addNameForObject(shovel, "ja_JP", "シャベル");
+		
+		LanguageRegistry.addName(fryingPan, "Frying Pan");
+		LanguageRegistry.instance().addNameForObject(fryingPan, "ja_JP", "フライパン");
+		
+		LanguageRegistry.addName(golfClub, "Golf Club");
+		LanguageRegistry.instance().addNameForObject(golfClub, "ja_JP", "ゴルフクラブ");
+		
+		LanguageRegistry.addName(deckBrush, "Deck Brush");
+		LanguageRegistry.instance().addNameForObject(deckBrush, "ja_JP", "デッキブラシ");
+		
+		LanguageRegistry.addName(rake, "Rake");
+		LanguageRegistry.instance().addNameForObject(rake, "ja_JP", "熊手");
+		
+		LanguageRegistry.addName(trophy, "Trophy");
+		LanguageRegistry.instance().addNameForObject(trophy, "ja_JP", "トロフィー");
+		
+		LanguageRegistry.addName(woodenSword, "Wooden Sword");
+		LanguageRegistry.instance().addNameForObject(woodenSword, "ja_JP", "木刀");
+		
+		LanguageRegistry.addName(nailBat, "Nail Bat");
+		LanguageRegistry.instance().addNameForObject(nailBat, "ja_JP", "釘バット");
+		
+		LanguageRegistry.addName(sionagi, "Sionagi");
+		LanguageRegistry.instance().addNameForObject(sionagi, "ja_JP", "潮凪");
+		
+		LanguageRegistry.addName(annaki, "Annaki");
+		LanguageRegistry.instance().addNameForObject(annaki, "ja_JP", "闇那其");
 	}
 
 
